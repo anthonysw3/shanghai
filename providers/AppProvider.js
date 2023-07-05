@@ -13,6 +13,12 @@ import { SanityProvider } from "./SanityContext";
 // Grid
 import { ScreenClassProvider } from "react-grid-system";
 
+// Hooks
+import { useLayer } from "../src/components/utils/hooks/useLayer";
+
+// Components
+import Layer from "../src/components/containers/Layer";
+
 export const AppContext = createContext();
 
 const engine =
@@ -20,31 +26,27 @@ const engine =
 
 const AppContainer = styled("div", ({ $theme }) => ({
   backgroundColor: $theme.colors.primary50,
-  minHeight: "100dvh", // full height
+  minHeight: "100vh", // full height
   width: "100%", // full width
   margin: 0,
 }));
 
 export const AppProvider = ({ children }) => {
-  // Add your site-wide state and functionality here
+  // const { layers, openLayer, closeLayer } = useLayer();
 
   return (
+    /*
     <StyletronProvider value={engine}>
       <BaseProvider theme={LightTheme}>
         <ScreenClassProvider>
           <SanityProvider>
-            <AppContext.Provider
-              value={
-                {
-                  /* Provide your state and functions here */
-                }
-              }
-            >
-              <AppContainer>{children}</AppContainer>
+            <AppContext.Provider value={{ openLayer, closeLayer }}>
+              <Layer layers={layers} closeLayer={closeLayer} />
+              */ <AppContainer>{children}</AppContainer> /*
             </AppContext.Provider>
           </SanityProvider>
         </ScreenClassProvider>
       </BaseProvider>
-    </StyletronProvider>
+    </StyletronProvider>*/
   );
 };
